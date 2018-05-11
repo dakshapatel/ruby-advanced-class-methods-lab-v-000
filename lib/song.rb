@@ -1,7 +1,9 @@
 
 require 'pry'
 class Song
+  #properties of a name and an artist name.
   attr_accessor :name, :artist_name
+  #class variable @@all to store all instances for Song 
   @@all = []
 
 #reader
@@ -13,27 +15,37 @@ class Song
     self.class.all << self
   end
 #binding.pry
+
 def self.create
+  #initializes a song
   #instantiates with .new
   song = self.new
-  #calls the save from line 12
+  #saves the song
+  #calls the save from def save method
   song.save
+  # return the song instance 
   song
 
 end
 
-def self.new_by_name(name)
+def self.new_by_name(name)#<= takes in the string name of the song
   #instantiate a song
   song = self.new
+  #return a song instance with name set as its name property
   #set the name
   song.name = name
+  #return an instance of song
   song
 end
 
-def self.create_by_name(name)
+def self.create_by_name(name)#<= takes in the string name of the song
+  #instantiate a song
   song = self.new
+  #return a song instance with name set as its name property
   song.name = name
+  #saves the song
   song.save
+  #return an instance of song
   song
 end
 
